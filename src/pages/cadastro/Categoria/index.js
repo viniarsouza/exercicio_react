@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import TemplateBase from '../../../components/TemplateBase';
@@ -30,6 +30,21 @@ function CadastroCategoria() {
     );
   };
 
+  useEffect(() => {
+    if (window.location.href.includes('localhost')) {
+      const URL = 'http://localhost:8080/categorias';
+      fetch(URL)
+        .then(async (respostaDoServer) => {
+          if (respostaDoServer.ok) {
+            const resposta = await respostaDoServer.json();
+            setCategorias(resposta);
+            return;
+          }
+          throw new Error('Não foi possível pegar os dados');
+        });
+    }
+  }, []);
+
   return (
     <TemplateBase>
       <h1>
@@ -43,6 +58,8 @@ function CadastroCategoria() {
           ...categorias,
           values,
         ]);
+
+        setValues(valoresIniciais);
       }}
       >
 
