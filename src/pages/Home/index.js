@@ -20,8 +20,12 @@ function Home() {
 
       <Carousel 
         ignoreFirstVideo
-        category={dadosIniciais.categorias[0]}
-        />
+        category={dadosIniciais.categorias[2]}
+      />
+
+      <Carousel 
+        category={dadosIniciais.categorias[3]}
+      />
 
       <Footer />
     </div>
