@@ -19,12 +19,11 @@ function Home() {
       />
 
       <Carousel 
-        ignoreFirstVideo
-        category={dadosIniciais.categorias[2]}
+        category={dadosIniciais.categorias[3]}
       />
 
       <Carousel 
-        category={dadosIniciais.categorias[3]}
+        category={dadosIniciais.categorias[2]}
       />
 
       <Carousel 
